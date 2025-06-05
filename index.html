@@ -3,204 +3,420 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sachin Ramnath Arunkumar - Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Sachin Ramnath Arunkumar</title>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background: #fafafa;
         }
-        .section-title {
-            @apply text-2xl font-semibold text-slate-700 mb-6 pb-2 border-b-2 border-sky-500;
+        
+        .header {
+            background: linear-gradient(135deg, #3498db 0%, #5a67d8 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        .card {
-            @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300;
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.1);
         }
-        .tag {
-            @apply bg-sky-100 text-sky-700 px-3 py-1 rounded-full text-sm font-medium;
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            z-index: 3;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            font-size: 1.1em;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav a:hover {
+            opacity: 1;
+        }
+        
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .credentials {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+        
+        .role-title {
+            font-size: 1.6em;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .role-subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .contact-info {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .container {
+            background: white;
+            padding: 60px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #34495e;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .intro {
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            text-align: justify;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .experience-item {
+            margin-bottom: 35px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .job-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #2c3e50;
+        }
+        
+        .company-date {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .achievements {
+            margin-top: 15px;
+        }
+        
+        .achievements li {
+            margin-bottom: 8px;
+        }
+        
+        .education-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .project-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #9b59b6;
+        }
+        
+        .project-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .project-meta {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        
+        .links {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .links a {
+            color: #3498db;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+        
+        .links a:hover {
+            text-decoration: underline;
+        }
+        
+        .contact {
+            margin-top: 30px;
+            text-align: center;
+            color: #7f8c8d;
+        }
+        
+        .placeholder {
+            background: #fff3cd;
+            border: 1px dashed #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-style: italic;
+            color: #856404;
+        }
+        
+        .certifications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .cert-badge {
+            background: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        .metric {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        
+        .update-note {
+            text-align: center;
+            color: #95a5a6;
+            font-style: italic;
+            margin-top: 40px;
+            font-size: 0.9em;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
-
-    <!-- Header & Navigation (Conceptual for screenshot) -->
-    <header class="bg-sky-600 text-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-3xl font-bold">Sachin Ramnath Arunkumar</h1>
-            <nav class="hidden md:flex space-x-4">
-                <a href="#about" class="hover:text-sky-200 transition-colors duration-300">About</a>
-                <a href="#experience" class="hover:text-sky-200 transition-colors duration-300">Experience</a>
-                <a href="#education" class="hover:text-sky-200 transition-colors duration-300">Education</a>
-                <a href="#projects" class="hover:text-sky-200 transition-colors duration-300">Projects</a>
-                <a href="#skills" class="hover:text-sky-200 transition-colors duration-300">Skills</a>
-            </nav>
-            <div class="md:hidden">
-                <!-- Mobile menu button can be added here if needed -->
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="hero" class="bg-gradient-to-r from-sky-500 to-indigo-600 text-white py-16 px-6 text-center">
-        <div class="container mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">Sachin Ramnath Arunkumar, CCRA, CEEM</h2>
-            <p class="text-xl md:text-2xl mb-2 text-sky-100">Strategic Product Owner & Consultant</p>
-            <p class="text-lg md:text-xl text-sky-200">Execution focused | Data Driven Decision Making</p>
-            <div class="mt-6 text-sm">
-                <a href="mailto:sachinra0805@gmail.com" class="hover:underline">sachinra0805@gmail.com</a> |
-                <a href="https://www.linkedin.com/in/sachin-ramnath-arunkumar/" target="_blank" rel="noopener noreferrer" class="hover:underline">LinkedIn</a> |
+<body>
+    <div class="header">
+        <nav class="nav">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+        </nav>
+        
+        <div class="header-content">
+            <h1>Sachin Ramnath Arunkumar</h1>
+            <div class="credentials">CCRA, CEEM</div>
+            <div class="role-title">Strategic Product Owner & Consultant</div>
+            <div class="role-subtitle">Execution focused | Data Driven Decision Making</div>
+            <div class="contact-info">
+                <a href="mailto:sachinra0805@gmail.com">sachinra0805@gmail.com</a> | 
+                <a href="#">LinkedIn</a> | 
                 New York, NY | +1 610-663-5831
             </div>
         </div>
-    </section>
+    </div>
 
-    <main class="container mx-auto px-6 py-12 space-y-16">
-
-        <!-- About Section -->
-        <section id="about" class="card">
-            <h3 class="section-title">About Me</h3>
-            <p class="text-slate-600 leading-relaxed">
-                Results-oriented Product Owner with 11+ years of experience spanning underwriting, catastrophe modeling, and data science within the insurance and financial services domain. Adept at leading cross-functional teams to deliver cutting-edge, customer-centric solutions that drive measurable business impact. Combines strong expertise in automation, AI, and data analytics with a proven track record of 40%+ efficiency gains through workflow optimization and risk governance. Passionate about iterative development, rapid prototyping, and continuous improvement to accelerate product delivery and enhance the overall user experience.
-            </p>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience">
-            <h3 class="section-title">Experience Highlights</h3>
-            <div class="space-y-8">
-                <div class="card">
-                    <h4 class="text-xl font-semibold text-sky-700">Product Manager</h4>
-                    <p class="text-md text-slate-500">Verisk Analytics | 08/23 - 07/24</p>
-                    <ul class="list-disc list-inside mt-2 text-slate-600 space-y-1">
-                        <li>Served as Product Owner for two agile scrum teams (12-15 members) for Touchstone, driving 99% on-time feature delivery.</li>
-                        <li>Spearheaded peril-agnostic CAT Modeling solutions for APAC, rolling out 2 major releases & 3 patch fixes in 12 months, reducing client onboarding time by 40%.</li>
-                        <li>Developed a PoC reusing historical ground-up loss data, potentially cutting computation time by 25-50%.</li>
-                        <li>Developed an outreach strategy for Indian market expansion, identifying 110+ potential contacts using web-scraping and AI.</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h4 class="text-xl font-semibold text-sky-700">Product Consultant</h4>
-                    <p class="text-md text-slate-500">Accenture/AIG | 09/22 - 08/23</p>
-                    <ul class="list-disc list-inside mt-2 text-slate-600 space-y-1">
-                        <li>Spearheaded Underwriting SCUP platform development, boosting efficiency by 50%.</li>
-                        <li>Integrated a new data scrubbing tool, boosting data processing efficiency by 30%.</li>
-                        <li>Delivered Roof Top Accumulation and CAT Results dashboards for unified data insights.</li>
-                        <li>Transitioned legacy SAS workflows to Python and Snowflake, cutting runtime by 17%.</li>
-                    </ul>
-                </div>
-                 <div class="card">
-                    <h4 class="text-xl font-semibold text-sky-700">CoE Subject Matter Expert</h4>
-                    <p class="text-md text-slate-500">American International Group/Accenture | 07/13 - 09/22</p>
-                    <ul class="list-disc list-inside mt-2 text-slate-600 space-y-1">
-                        <li>Led data quality initiatives saving $4.4M in net losses (-18% for AIG MM, -17% for Lex-London top accounts).</li>
-                        <li>Executed Contingent BI initiatives to map Tier 1 & Tier 2 supplier complexities.</li>
-                        <li>Built a multi-model framework blending results, cutting modeling time by 25%.</li>
-                        <li>Led product development, UAT, and support for in-house tools, achieving 95% user adoption.</li>
-                        <li>Managed complex process queries for 200+ analysts, saving 2.5 FTE (~$75K annually).</li>
-                        <li>Streamlined workflows, cutting average handling time by 40% (10 to 3 days).</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education & Certifications Section -->
-        <section id="education">
-            <h3 class="section-title">Education & Certifications</h3>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="card">
-                    <h4 class="text-xl font-semibold text-sky-700">Lehigh University</h4>
-                    <p class="text-slate-600">Master's in Catastrophe Modeling and Resilience (2024-Present)</p>
-                    <p class="text-sm text-slate-500">CGPA: 3.78</p>
-                </div>
-                <div class="card">
-                    <h4 class="text-xl font-semibold text-sky-700">Indian Institute of Management, Bangalore</h4>
-                    <p class="text-slate-600">Executive Program in Business Analytics and Intelligence (2020-2021)</p>
-                </div>
-                <div class="card">
-                    <h4 class="text-xl font-semibold text-sky-700">SRM University, Chennai</h4>
-                    <p class="text-slate-600">B.Tech in Mechanical Engineering (2009-2013)</p>
-                    <p class="text-sm text-slate-500">CGPA: 8.97</p>
-                </div>
-                <div class="card">
-                    <h4 class="text-xl font-semibold text-sky-700">Certifications</h4>
-                    <p class="tag">CCRA (Certified Catastrophe Risk Analyst)</p>
-                    <p class="tag mt-2">CEEM (Certified Extreme Event Modeler)</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Research Projects Section -->
-        <section id="projects">
-            <h3 class="section-title">Featured Research Projects</h3>
-            <div class="space-y-8">
-                <div class="card">
-                    <h4 class="text-xl font-semibold text-sky-700">Catastrophe Model for Hurricane Impact on Large Buildings in Lower Manhattan</h4>
-                    <p class="text-slate-600 leading-relaxed"><span class="font-medium text-slate-700">Objective:</span> Assess structural failure risk in large buildings due to hurricane-force wind speeds.</p>
-                    <p class="text-slate-600 leading-relaxed"><span class="font-medium text-slate-700">Approach:</span> Leveraged STORM synthetic event catalog (100K events); applied publicly available fragility curves.</p>
-                    <p class="text-slate-600 leading-relaxed"><span class="font-medium text-slate-700">Impact:</span> Provided granular risk estimates supporting data-driven resilience planning.</p>
-                </div>
-                <div class="card">
-                    <h4 class="text-xl font-semibold text-sky-700">Surge Model for US Naval Facilities</h4>
-                    <p class="text-slate-600 leading-relaxed"><span class="font-medium text-slate-700">Objective:</span> Analyze flood surge impact on undisclosed US naval bases and critical infrastructure.</p>
-                    <p class="text-slate-600 leading-relaxed"><span class="font-medium text-slate-700">Approach:</span> Calculated surge depth, facility level fragility; evaluated cascade effects.</p>
-                    <p class="text-slate-600 leading-relaxed"><span class="font-medium text-slate-700">Impact:</span> Identified key vulnerabilities and developed mitigation strategies.</p>
-                </div>
-                <div class="card">
-                    <h4 class="text-xl font-semibold text-sky-700">Bayesian MCMC Modeling of COVID-19's Impact on Critical Care Capacity in NJ</h4>
-                    <p class="text-slate-600 leading-relaxed"><span class="font-medium text-slate-700">Objective:</span> Forecast pandemic-related demand on NJ hospitals and evaluate system-wide failure risks.</p>
-                    <p class="text-slate-600 leading-relaxed"><span class="font-medium text-slate-700">Approach:</span> Deployed SEIR model calibrated with Bayesian MCMC.</p>
-                    <p class="text-slate-600 leading-relaxed"><span class="font-medium text-slate-700">Impact:</span> Informed hospital administration on critical resource planning and policy interventions.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Core Skills Section -->
-        <section id="skills">
-            <h3 class="section-title">Core Skills</h3>
-            <div class="card">
-                <div class="flex flex-wrap gap-3">
-                    <span class="tag">Catastrophe Modeling (Property, Energy, WC)</span>
-                    <span class="tag">Risk Analysis</span>
-                    <span class="tag">Account Modeling</span>
-                    <span class="tag">Portfolio Modeling</span>
-                    <span class="tag">Data Quality</span>
-                    <span class="tag">Underwriting & Actuarial Pricing</span>
-                    <span class="tag">Resilience Planning</span>
-                    <span class="tag">Product Management</span>
-                    <span class="tag">Agile User Story Development</span>
-                    <span class="tag">Iteration Planning</span>
-                    <span class="tag">Product Lifecycle (PRD, BRD, MRD)</span>
-                    <span class="tag">Python</span>
-                    <span class="tag">R</span>
-                    <span class="tag">SQL</span>
-                    <span class="tag">Snowflake</span>
-                    <span class="tag">SAS</span>
-                    <span class="tag">Power BI</span>
-                    <span class="tag">Tableau</span>
-                    <span class="tag">Azure DevOps</span>
-                    <span class="tag">Aha!</span>
-                    <span class="tag">Process Optimization</span>
-                    <span class="tag">E2E Workflow Automation</span>
-                    <span class="tag">Stakeholder Engagement</span>
-                    <span class="tag">Executive-Level Communication</span>
-                    <span class="tag">Coaching & Mentoring</span>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-slate-800 text-slate-300 py-8 text-center">
-        <div class="container mx-auto px-6">
-            <p>&copy; <script>document.write(new Date().getFullYear())</script> Sachin Ramnath Arunkumar. All rights reserved.</p>
-            <p class="text-sm mt-1">
-                <a href="mailto:sachinra0805@gmail.com" class="hover:text-sky-400 transition-colors duration-300">sachinra0805@gmail.com</a> |
-                <a href="https://www.linkedin.com/in/sachin-ramnath-arunkumar/" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition-colors duration-300">LinkedIn Profile</a>
-            </p>
+    <div class="container">
+        <div class="intro">
+            Results-oriented Product Owner with 11+ years of experience spanning underwriting, catastrophe modeling, and data science within the insurance and financial services domain. Adept at leading cross-functional teams to deliver cutting-edge, customer-centric solutions that drive measurable business impact. Combines strong expertise in automation, AI, and data analytics with a proven track record of <span class="metric">40%+ efficiency gains</span> through workflow optimization and risk governance. Passionate about iterative development, rapid prototyping, and continuous improvement to accelerate product delivery and enhance the overall user experience.
         </div>
-    </footer>
 
+        <h2>Experience Highlights</h2>
+        
+        <div class="experience-item">
+            <div class="job-title">Product Manager</div>
+            <div class="company-date">Verisk Analytics | 08/23 - 07/24</div>
+            <ul class="achievements">
+                <li>Served as Product Owner for two agile scrum teams (12-15 members) for Touchstone, driving <span class="metric">99% on-time feature delivery</span>.</li>
+                <li>Spearheaded peril-agnostic CAT Modeling solutions for APAC, rolling out 2 major releases & 3 patch fixes in 12 months, reducing client onboarding time by <span class="metric">40%</span>.</li>
+                <li>Developed a PoC reusing historical ground-up loss data, potentially cutting computation time by <span class="metric">25-50%</span>.</li>
+                <li>Developed an outreach strategy for Indian market expansion, identifying <span class="metric">110+ potential contacts</span> using web-scraping and AI.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-title">Product Consultant</div>
+            <div class="company-date">Accenture/AIG | 09/22 - 08/23</div>
+            <ul class="achievements">
+                <li>Spearheaded Underwriting SCUP platform development, boosting efficiency by <span class="metric">50%</span>.</li>
+                <li>Integrated a new data scrubbing tool, boosting data processing efficiency by <span class="metric">30%</span>.</li>
+                <li>Delivered Roof Top Accumulation and CAT Results dashboards for unified data insights.</li>
+                <li>Transitioned legacy SAS workflows to Python and Snowflake, cutting runtime by <span class="metric">17%</span>.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-title">CoE Subject Matter Expert</div>
+            <div class="company-date">American International Group/Accenture | 07/13 - 09/22</div>
+            <ul class="achievements">
+                <li>Led data quality initiatives saving <span class="metric">$4.4M in net losses</span> (-18% for AIG MM, -17% for Lex-London top accounts).</li>
+                <li>Executed Contingent BI initiatives to map Tier 1 & Tier 2 supplier complexities.</li>
+                <li>Built a multi-model framework blending results, cutting modeling time by <span class="metric">25%</span>.</li>
+                <li>Led product development, UAT, and support for in-house tools, achieving <span class="metric">95% user adoption</span>.</li>
+                <li>Managed complex process queries for 200+ analysts, saving <span class="metric">2.5 FTE (~$75K annually)</span>.</li>
+                <li>Streamlined workflows, cutting average handling time by <span class="metric">40%</span> (10 to 3 days).</li>
+            </ul>
+        </div>
+
+        <div class="placeholder">
+            <strong>Future Experience Section:</strong> Additional professional roles and achievements will be added here as career progresses.
+        </div>
+
+        <h2 id="education">Education & Certifications</h2>
+        
+        <div class="education-item">
+            <h3>Lehigh University</h3>
+            <div class="company-date">Master's in Catastrophe Modeling and Resilience (2024-Present)</div>
+            <div>CGPA: 3.78</div>
+        </div>
+
+        <div class="education-item">
+            <h3>Indian Institute of Management, Bangalore</h3>
+            <div class="company-date">Executive Program in Business Analytics and Intelligence (2020-2021)</div>
+        </div>
+
+        <div class="education-item">
+            <h3>SRM University, Chennai</h3>
+            <div class="company-date">B.Tech in Mechanical Engineering (2009-2013)</div>
+            <div>CGPA: 8.97</div>
+        </div>
+
+        <div class="placeholder">
+            <strong>Future Education Section:</strong> Additional certifications, courses, and academic achievements will be added here.
+        </div>
+
+        <h3>Professional Certifications</h3>
+        <div class="certifications">
+            <span class="cert-badge">CCRA (Certified Catastrophe Risk Analyst)</span>
+            <span class="cert-badge">CEEM (Certified Extreme Event Modeler)</span>
+        </div>
+
+        <div class="placeholder">
+            <strong>Future Certifications:</strong> Additional professional certifications and credentials will be displayed here.
+        </div>
+
+        <h2 id="projects">Featured Research Projects</h2>
+        
+        <div class="project-item">
+            <div class="project-title">Catastrophe Model for Hurricane Impact on Large Buildings in Lower Manhattan</div>
+            <div class="project-meta">Risk Assessment & Structural Analysis</div>
+            <p><strong>Objective:</strong> Assess structural failure risk in large buildings due to hurricane-force wind speeds.</p>
+            <p><strong>Approach:</strong> Leveraged STORM synthetic event catalog (100K events); applied publicly available fragility curves.</p>
+            <p><strong>Impact:</strong> Provided granular risk estimates supporting data-driven resilience planning.</p>
+        </div>
+
+        <div class="project-item">
+            <div class="project-title">Surge Model for US Naval Facilities</div>
+            <div class="project-meta">Infrastructure Resilience & National Security</div>
+            <p><strong>Objective:</strong> Analyze flood surge impact on undisclosed US naval bases and critical infrastructure.</p>
+            <p><strong>Approach:</strong> Calculated surge depth, facility level fragility; evaluated cascade effects.</p>
+            <p><strong>Impact:</strong> Identified key vulnerabilities and developed mitigation strategies.</p>
+        </div>
+
+        <div class="project-item">
+            <div class="project-title">Bayesian MCMC Modeling of COVID-19's Impact on Critical Care Capacity in NJ</div>
+            <div class="project-meta">Public Health & Pandemic Response</div>
+            <p><strong>Objective:</strong> Forecast pandemic-related demand on NJ hospitals and evaluate system-wide failure risks.</p>
+            <p><strong>Approach:</strong> Deployed SEIR model calibrated with Bayesian MCMC.</p>
+            <p><strong>Impact:</strong> Informed hospital administration on critical resource planning and policy interventions.</p>
+        </div>
+
+        <div class="placeholder">
+            <strong>Future Research Projects:</strong> Ongoing and upcoming research projects will be featured here with detailed descriptions, methodologies, and outcomes.
+        </div>
+
+        <h2 id="skills">Publications & Presentations</h2>
+        <div class="placeholder">
+            <strong>Academic Publications:</strong> Peer-reviewed papers, conference presentations, and research contributions will be listed here with links to papers, presentations, and code repositories.
+        </div>
+
+        <h2>Professional Network & Mentorship</h2>
+        <div class="placeholder">
+            <strong>Professional Collaborations:</strong> Details about professional collaborations, mentorship activities, and industry partnerships will be added here.
+        </div>
+
+        <div class="links">
+            <a href="#">LinkedIn</a>
+            <a href="#">Google Scholar</a>
+            <a href="#">ResearchGate</a>
+            <a href="#">GitHub</a>
+        </div>
+
+        <div class="contact">
+            Email: sachin.arunkumar [at] lehigh [dot] edu
+        </div>
+
+        <div class="update-note">
+            [Last updated June 2025]
+        </div>
+    </div>
 </body>
 </html>
