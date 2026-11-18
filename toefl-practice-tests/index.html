@@ -1,55 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TOEFL Practice Tests</title>
-<style>
-  :root{--ink:#1c2430;--muted:#5b6b7f;--line:#dbe3ee;--accent:#2563eb;--bg:#f6f8fb;--card:#fff}
-  *{box-sizing:border-box}
-  body{margin:0;font-family:Georgia,'Times New Roman',serif;background:var(--bg);color:var(--ink)}
-  .wrap{max-width:820px;margin:0 auto;padding:32px 20px 64px}
-  .kicker{letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--muted);margin:0 0 8px}
-  h1{font-size:40px;line-height:1.1;margin:0 0 12px}
-  .lede{font-size:18px;line-height:1.55;color:#33404f;margin:0 0 28px}
-  .card{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:0 0 16px;text-decoration:none;color:inherit;box-shadow:0 1px 3px rgba(20,30,50,.05)}
-  a.card:hover{border-color:var(--accent)}
-  .card h2{margin:0 0 6px;font-size:24px}
-  .card p{margin:0 0 10px;color:#33404f;line-height:1.5}
-  .card ul{margin:0 0 12px;padding-left:20px;color:#33404f;line-height:1.6}
-  .chip{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:13px;color:var(--muted);margin-right:8px}
-  .go{color:var(--accent);font-weight:bold}
-  .soon{opacity:.55}
-  footer{margin-top:36px;color:var(--muted);font-size:14px;line-height:1.6}
-</style>
+<title>Practice Tests</title>
+<link rel="stylesheet" href="assets/player.css">
 </head>
 <body>
-<div class="wrap">
-  <p class="kicker">Advanced practice · Level: just above TOEFL</p>
-  <h1>TOEFL Practice Tests</h1>
-  <p class="lede">Short practice sets instead of long sections — each set is five mini-tests of 4–12 minutes. The passages and vocabulary are deliberately a little harder than the real TOEFL, so test day feels easier. Pick a set, work through it, and your visits and scores are recorded automatically.</p>
-
-  <a class="card" href="test-1/">
-    <h2>Test 1 — Mini Practice Set</h2>
-    <p>Five mini-tests:</p>
-    <ul>
-      <li>Reading Sprint — Urban Wetlands</li>
-      <li>Vocabulary in Context — Academic Words</li>
-      <li>Listening Lab — Urban Ecology Lecture</li>
-      <li>Sentence Structure — Academic Style</li>
-      <li>Writing Studio — Integrated Response</li>
-    </ul>
-    <span class="chip">⏱ ~30 min for the full set</span><span class="chip">🎯 Level: C1+ / TOEFL 100+ stretch</span><span class="chip">💾 Stop midway — progress auto-saves on your device</span>
-    <p style="margin-top:12px"><span class="go">Start Test 1 →</span></p>
-  </a>
-
-  <div class="card soon">
-    <h2>Test 2</h2>
-    <p>Coming soon — a new set of five mini-tests at the same level.</p>
-    <span class="chip">Not available yet</span>
+<div class="exam-header"><span class="brand">Practice Tests</span><span class="test-name">Mini tests and full mock tests</span></div>
+<div class="main narrow">
+  <div class="directions">
+    <h1>Test catalog</h1>
+    <p>Short mini tests for daily practice, and timed mock tests that run in exam order, in one sitting. Passages and questions are set slightly above real exam level, so test day feels easier. Visits and finished section scores are recorded automatically.</p>
   </div>
 
-  <footer>Tip: do 1–2 mini-tests per day rather than a whole set at once. Scores are saved automatically when you finish each mini-test on this site.</footer>
+  <h2 style="font-size:19px;margin:26px 0 4px">TOEFL</h2>
+  <p class="small muted" style="margin:0 0 8px">Level: C1+ / TOEFL 100+ stretch</p>
+  <table class="sections">
+    <tr><th>Test</th><th>Type</th><th>Sections</th><th>Time</th><th></th></tr>
+    <tr>
+      <td><b>Test 1</b> — Mini Practice Set</td><td>Mini test</td>
+      <td>Reading, Vocabulary, Listening, Structure, Writing</td><td>~32 min</td>
+      <td><a href="test-1/">Start</a></td>
+    </tr>
+    <tr>
+      <td><b>Test 2</b> — Mini Practice Set</td><td>Mini test</td>
+      <td>Reading, Vocabulary, Listening, Structure, Writing</td><td>~32 min</td>
+      <td><a href="test-2/">Start</a></td>
+    </tr>
+    <tr>
+      <td><b>Mock 1</b> — Mock Test</td><td>Mock test</td>
+      <td>Reading, Listening, Writing — in exam order, timed</td><td>~70 min</td>
+      <td><a href="mock-1/">Start</a></td>
+    </tr>
+  </table>
+
+  <footer class="site">Tip: do one or two mini-test sections a day; save mock tests for when you can sit for the full session.</footer>
 </div>
 <script>
 function reportEvent(ev){
