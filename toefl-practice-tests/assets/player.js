@@ -11,13 +11,14 @@ var HIST_KEY='examHistoryV1:'+(window.TEST_SLUG||'test');
 var timerInt=null;
 
 /* ---------------- reporting (unchanged contract) ---------------- */
+function apiBase(){ return window.API_BASE || '/api'; }
 function reportEvent(ev){
   try{
     var h=location.hostname;
     if(!(h==='3.15.95.160'||h==='tensorcat.io'||/\.tensorcat\.io$/.test(h))) return;
     var body=JSON.stringify(ev);
-    if(navigator.sendBeacon){ navigator.sendBeacon('/api/event', new Blob([body],{type:'application/json'})); }
-    else{ fetch('/api/event',{method:'POST',headers:{'Content-Type':'application/json'},body:body,keepalive:true}).catch(function(){}); }
+    if(navigator.sendBeacon){ navigator.sendBeacon(apiBase()+'/event', new Blob([body],{type:'application/json'})); }
+    else{ fetch(apiBase()+'/event',{method:'POST',headers:{'Content-Type':'application/json'},body:body,keepalive:true}).catch(function(){}); }
   }catch(e){}
 }
 
@@ -53,9 +54,10 @@ function fmtDate(d){
 
 /* ---------------- chrome ---------------- */
 function headerHtml(){
+  var user = window.__authUser ? '<span class="test-name">'+esc(window.__authUser)+'</span><a href="../dashboard/"><button class="hdr-btn" type="button">My results</button></a><button class="hdr-btn" type="button" onclick="P.logout()">Log out</button>' : '';
   return '<div class="exam-header"><span class="brand">'+esc(DATA.subject)+' Practice Tests</span>'+
     '<span class="test-name">'+esc(DATA.title)+' — '+esc(DATA.subtitle)+'</span>'+
-    '<span class="spacer"></span><a href="../"><button class="hdr-btn" type="button">All tests</button></a></div>';
+    '<span class="spacer"></span>'+user+'<a href="../"><button class="hdr-btn" type="button">All tests</button></a></div>';
 }
 function toolbarHtml(right, mid){
   return '<div class="toolbar"><span class="sec-name">'+esc(right||'')+'</span>'+
@@ -362,7 +364,12 @@ window.P={
     finishSection(score, s.questions.length);
   },
   viewSummary:function(){ S.screen='summary'; saveState(); render(); },
-  resetAll:function(){ clearState(); render(); }
+  resetAll:function(){ clearState(); render(); },
+  logout:function(){
+    fetch(apiBase()+'/logout',{method:'POST',credentials:'same-origin'}).catch(function(){}).then(function(){
+      location.href = window.LOGIN_URL || '/login/';
+    });
+  }
 };
 function finishSection(score,total){
   var s=sec(); var now=new Date();
@@ -381,6 +388,9 @@ fetch(window.TEST_DATA_URL).then(function(r){ return r.json(); }).then(function(
   DATA=d; S=loadState();
   reportEvent({type:'visit', set:DATA.set, date:new Date().toISOString()});
   render();
+  fetch(apiBase()+'/me',{credentials:'same-origin'}).then(function(r){ return r.ok? r.json(): null; }).then(function(j){
+    if(j && j.username){ window.__authUser = j.display_name || j.username; render(); }
+  }).catch(function(){});
 }).catch(function(){
   document.getElementById('app').innerHTML='<div class="main narrow"><p>Could not load the test data. Please reload the page.</p></div>';
 });

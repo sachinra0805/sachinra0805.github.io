@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="assets/player.css">
 </head>
 <body>
-<div class="exam-header"><span class="brand">Practice Tests</span><span class="test-name">Mini tests and full mock tests</span></div>
+<div class="exam-header"><span class="brand">Practice Tests</span><span class="test-name">Mini tests and full mock tests</span><span class="spacer"></span><span id="dashLink"></span></div>
 <div class="main narrow">
   <div class="directions">
     <h1>Test catalog</h1>
@@ -43,14 +43,20 @@ function reportEvent(ev){
     var h = location.hostname;
     if(!(h === '3.15.95.160' || h === 'tensorcat.io' || /\.tensorcat\.io$/.test(h))) return;
     var body = JSON.stringify(ev);
+    var base = window.API_BASE || '/api';
     if(navigator.sendBeacon){
-      navigator.sendBeacon('/api/event', new Blob([body], {type:'application/json'}));
+      navigator.sendBeacon(base + '/event', new Blob([body], {type:'application/json'}));
     } else {
-      fetch('/api/event', {method:'POST', headers:{'Content-Type':'application/json'}, body:body, keepalive:true}).catch(function(){});
+      fetch(base + '/event', {method:'POST', headers:{'Content-Type':'application/json'}, body:body, keepalive:true}).catch(function(){});
     }
   }catch(e){}
 }
 reportEvent({type:'visit', set:'Landing Page', date:new Date().toISOString()});
+fetch((window.API_BASE || '/api') + '/me', {credentials:'same-origin'}).then(function(r){ return r.ok ? r.json() : null; }).then(function(j){
+  if(j && j.username){
+    document.getElementById('dashLink').innerHTML = '<span class="test-name">' + (j.display_name || j.username) + '</span> <a href="dashboard/"><button class="hdr-btn" type="button">My results</button></a>';
+  }
+}).catch(function(){});
 </script>
 </body>
 </html>
