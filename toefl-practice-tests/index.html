@@ -223,6 +223,7 @@ function copyText(text, areaEl, msgEl){
 }
 function recordAttempt(a){
   attempts.unshift(a);
+  reportEvent({type:'score', test:a.test, date:a.dateISO, score:a.score, total:a.total, percentage:a.pct});
   if(!bestByTest[a.test] || a.pct > bestByTest[a.test].pct) bestByTest[a.test]=a;
   renderDashboard(); renderHistory();
 }
@@ -388,6 +389,21 @@ document.getElementById('downloadBtn').addEventListener('click',function(){
   setTimeout(function(){URL.revokeObjectURL(url);},2000);
   document.getElementById('allFeedback').textContent='✓ Downloaded — save it as RESULTS in your repo if you like.';
 });
+
+/* ---- Event reporting to the backend (active only on the VPS / tensorcat.io) ---- */
+function reportEvent(ev){
+  try{
+    var h = location.hostname;
+    if(!(h === '3.15.95.160' || h === 'tensorcat.io' || /\.tensorcat\.io$/.test(h))) return;
+    var body = JSON.stringify(ev);
+    if(navigator.sendBeacon){
+      navigator.sendBeacon('/api/event', new Blob([body], {type:'application/json'}));
+    } else {
+      fetch('/api/event', {method:'POST', headers:{'Content-Type':'application/json'}, body:body, keepalive:true}).catch(function(){});
+    }
+  }catch(e){}
+}
+reportEvent({type:'visit', date:new Date().toISOString()});
 </script>
 </body>
 </html>
