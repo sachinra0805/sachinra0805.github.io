@@ -6,5 +6,6 @@ Scores from the VPS-hosted test are recorded automatically by the backend and sy
 |---|---|---|---|---|---|
 | 2026-11-17 | Test 1 | Reading Sprint — Urban Wetlands | 0 | 5 | 0% |
 | 2026-11-18 | Test 1 | Reading Sprint — Urban Wetlands | 4 | 5 | 80% |
+| 2026-11-18 | Test 1 | Reading Sprint — Urban Wetlands | 5 | 5 | 100% |
 
 Note: the 2026-11-17 row is a dummy end-to-end pipeline test (first-option answers), not a real attempt.
