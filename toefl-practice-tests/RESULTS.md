@@ -7,5 +7,7 @@ Scores from the VPS-hosted test are recorded automatically by the backend and sy
 | 2026-11-17 | Test 1 | Reading Sprint — Urban Wetlands | 0 | 5 | 0% |
 | 2026-11-18 | Test 1 | Reading Sprint — Urban Wetlands | 4 | 5 | 80% |
 | 2026-11-18 | Test 1 | Reading Sprint — Urban Wetlands | 5 | 5 | 100% |
+| 2026-11-20 | Test 1 | Vocabulary in Context — Academic Words | 4 | 6 | 67% |
+| 2026-11-20 | Test 1 | Sentence Structure — Academic Style | 4 | 5 | 80% |
 
 Note: the 2026-11-17 row is a dummy end-to-end pipeline test (first-option answers), not a real attempt.
